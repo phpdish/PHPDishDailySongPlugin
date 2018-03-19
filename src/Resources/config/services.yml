@@ -1,0 +1,21 @@
+services:
+    phpdish.manager.song:
+        class: PHPDish\DailySongPlugin\Service\SongManager
+        public: true
+        arguments: ["@doctrine.orm.entity_manager"]
+
+    phpdish.twig_extension.song:
+        class: PHPDish\DailySongPlugin\Twig\SongExtension
+        public: false
+        arguments:
+            - "@phpdish.manager.song"
+        tags:
+            - {name: twig.extension}
+
+    # 后台部分
+    phpdish.admin.song:
+        class: PHPDish\DailySongPlugin\Admin\SongAdmin
+        arguments: [~, PHPDish\DailySongPlugin\Entity\Song, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: 'phpdish.admin.group.site', label: 每天一首歌}
+        public: true
