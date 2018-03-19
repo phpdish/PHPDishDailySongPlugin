@@ -15,7 +15,6 @@ class SongController extends Controller
     public function getSongAction()
     {
         $manager = $this->get('phpdish.manager.song');
-        dump($manager->getLatestSong());
 
         return $this->render('PHPDishDailySongPlugin::_daily_song.html.twig', [
             'song' => $manager->getLatestSong(),
