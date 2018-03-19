@@ -1,40 +1,64 @@
-# PHPDish Plugin Skeleton
+# PHPDish 每天一首歌插件
 
-创建 PHPDish 用到的样例代码。 
+[![Latest Stable Version](https://img.shields.io/packagist/v/phpdish/daily-song-plugin.svg?style=flat-square&label=stable)](https://packagist.org/packages/phpdish/daily-song-plugin)
+[![Total Downloads](https://img.shields.io/packagist/dt/phpdish/daily-song-plugin.svg?style=flat-square)](https://packagist.org/packages/phpdish/daily-song-plugin)
+[![MIT License](https://img.shields.io/packagist/l/phpdish/daily-song-plugin.svg?style=flat-square)](https://packagist.org/packages/phpdish/daily-song-plugin)
+[![Scrutinizer](https://img.shields.io/scrutinizer/g/phpdish/daily-song-plugin.svg?style=flat-square)](https://scrutinizer-ci.com/g/phpdish/daily-song-plugin/?branch=master)
+
+具体效果请前往官网查看[https://www.phpdish.com](https://www.phpdish.com)
 
 ## Installation
 
-1. 在你的 PHPDish 项目下执行下面命令下载代码；
+执行下面命令安装
 
-    ```
-    $ composer create-project phpdish/plugin-skeleton ProjectName
-    ```
-    
-2. 重命名 `src/AcmePHPDishExamplePlugin.php` 文件为你的插件名称;
+```bash
+$ composer require phpdish/daily-song-plugin
+```
 
-    例如：你的插件名称为 `phpdish-email-plugin`，那么本文件名为 `VendorPHPDishEmailPlugin`
-    其中vendor是你的名称代号，表示你是这个插件的提供商。
+修改你的 `app/AppKernel.php` 文件注册插件：
 
-3. 替换命名空间为你的名称开头，如果你不想做这个事情可以省略。
+```php
+// 注册插件
+$plugins = [
+     ...
+     
+     new PHPDish\DailySongPlugin\PHPDishDailySongPlugin()
+];
+```
+执行下面命令安装数据库：
 
-4. 修改的 `composer.json` 文件，把这个插件的命名空间写入自动加载；
+```bash
+$ bin/console doctrine:schema:update --force
+```
 
-   ```json
-   {
-       "autoload": {
-           "psr-4": {
-               "Vendor\\PHPDishEmailPlugin\\": "src/"
-           }
-       },
-       "autoload-dev": {
-           "psr-4": {
-               "Vendor\\PHPDishEmailPlugin\\Tests\\": "tests/"
-           }
-       },
-   }
-   ```
-   注意，在插件的开发阶段，为确保你的插件会被项目加载，你需要把上面提到的加载项也写入到 `PHPDish` 的 `composer.json` 文件
-   里去。
+## Usage
 
+### 引用播放器
 
+在你的模板文件中相应的位置写入下面的代码：
+
+```html
+{{ render(controller('PHPDishDailySongPlugin:Song:getSong')) }}
+```
+
+你会得到一个类似下面的html结构：
+
+```html
+<div class="daily-song">
+    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" height=86 src="//music.163.com/outchain/player?type=2&id=xxx&auto=0&height=66"></iframe>
+</div>
+```
+调整样式适配你的模板。
+
+### 管理歌曲
+
+安装之后在你的后台 > 网站 下回出现“每天一首歌”导航，你可以在这里进行歌曲的维护。
+
+## Support
+
+如果有问题可以前往官网发帖或者直接在 issue 提问。
+
+## License
+   
+采用 [MIT](https://opensource.org/licenses/MIT) 开源许可证。
 
