@@ -3,7 +3,7 @@
 [![Latest Stable Version](https://img.shields.io/packagist/v/phpdish/daily-song-plugin.svg?style=flat-square&label=stable)](https://packagist.org/packages/phpdish/daily-song-plugin)
 [![Total Downloads](https://img.shields.io/packagist/dt/phpdish/daily-song-plugin.svg?style=flat-square)](https://packagist.org/packages/phpdish/daily-song-plugin)
 [![MIT License](https://img.shields.io/packagist/l/phpdish/daily-song-plugin.svg?style=flat-square)](https://packagist.org/packages/phpdish/daily-song-plugin)
-[![Scrutinizer](https://img.shields.io/scrutinizer/g/phpdish/daily-song-plugin.svg?style=flat-square)](https://scrutinizer-ci.com/g/phpdish/daily-song-plugin/?branch=master)
+[![Scrutinizer](https://img.shields.io/scrutinizer/g/phpdish/daily-song-plugin.svg?style=flat-square)](https://scrutinizer-ci.com/g/phpdish/PHPDishDailySongPlugin/?branch=master)
 
 具体效果请前往官网查看[https://www.phpdish.com](https://www.phpdish.com)
 
