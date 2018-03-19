@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
 class SongController extends Controller
 {
     /**
-     * 获取最近的一首歌
+     * 获取最近的一首歌.
      *
      * @return Response
      */
@@ -16,8 +16,9 @@ class SongController extends Controller
     {
         $manager = $this->get('phpdish.manager.song');
         dump($manager->getLatestSong());
+
         return $this->render('PHPDishDailySongPlugin::_daily_song.html.twig', [
-            'song' => $manager->getLatestSong()
+            'song' => $manager->getLatestSong(),
         ]);
     }
 }

@@ -48,6 +48,7 @@ class Song implements SongInterface
     public function setName($name)
     {
         $this->name = $name;
+
         return $this;
     }
 
@@ -65,6 +66,7 @@ class Song implements SongInterface
     public function setSrcId($srcId)
     {
         $this->srcId = $srcId;
+
         return $this;
     }
 
@@ -82,6 +84,7 @@ class Song implements SongInterface
     public function setSrc($src)
     {
         $this->src = $src;
+
         return $this;
     }
 }

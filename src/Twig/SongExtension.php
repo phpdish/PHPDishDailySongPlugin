@@ -24,7 +24,7 @@ class SongExtension extends \Twig_Extension
     public function getFunctions()
     {
         return [
-            new \Twig_SimpleFunction('get_latest_song', [$this->songManager, 'getLatestSong'])
+            new \Twig_SimpleFunction('get_latest_song', [$this->songManager, 'getLatestSong']),
         ];
     }
 }

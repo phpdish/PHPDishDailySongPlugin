@@ -29,7 +29,7 @@ class SongManager  implements SongManagerInterface
     public function getLatestSong()
     {
         return $this->songRepository->findOneBy(['enabled' => true], [
-            'createdAt' => 'desc'
+            'createdAt' => 'desc',
         ]);
     }
 }
